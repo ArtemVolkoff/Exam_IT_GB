@@ -13,13 +13,15 @@ using System;
 	    }
 	    
 	  
-	    static void ChangeArray(string[] matr)
+	    static void ChangeArray(string[] matr, string[] matr2)
 	    {
+        int j=0;
 	      for (int i = 0; i < matr.Length; i++)
 	        {
-	          if (matr[i].Length > 3)
+            if (matr[i].Length < 4)
             {
-               matr[i] = matr[i].Substring(0, 3);
+               matr2[j] = matr[i];
+              j++;
             }
 	        }
 	    }
@@ -28,7 +30,9 @@ using System;
 	    {
 	        Console.Write("Введите размерность массива: ");
 	        int m = Convert.ToInt32(Console.ReadLine());
+          int n = m;
 	        string [] array = new string[m];
+          string [] array2 = new string[n];
           for (int i = 0; i < m; i++)
 	        {
 	            Console.Write($"Введите {i} строку массива:");
@@ -40,9 +44,9 @@ using System;
 	        PrintArray(array);
         	Console.WriteLine();
 	        Console.WriteLine("");
-          ChangeArray(array);
+          ChangeArray(array,array2);
         	Console.WriteLine("Итоговый массив: ");
-	        PrintArray(array);
+	        PrintArray(array2);
 	    }
 	  
 	}
